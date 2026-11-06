@@ -1,0 +1,37 @@
+# .NET / Visual Studio
+**/bin/
+**/obj/
+.vs/
+.idea/
+TestResults/
+coverage/
+*.user
+*.suo
+*.rsuser
+*.nupkg
+# User state and secrets
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.pfx
+*.p12
+*.key
+secrets.json
+.env
+.env.*
+!.env.example
+# Music/media files belong to users, never this repository
+*.mp3
+*.flac
+*.wav
+*.ogg
+*.m4a
+*.aac
+*.wma
+*.opus
+# Local runtime state
+*.log
+logs/
+.local/
