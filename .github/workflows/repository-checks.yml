@@ -12,8 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate repository contracts
-        shell: python
+        shell: bash
         run: |
+          python3 - <<'PY'
           from pathlib import Path
           import re
           required = ['LICENSE', 'README.md', 'AGENTS.md', 'CONTRIBUTING.md', 'docs/ROADMAP.md', 'docs/PHILOSOPHY.md', '.manager/codex-exec.md']
@@ -34,3 +35,4 @@ jobs:
                   assert any('SP:' in line and 1 <= int(re.search(r'SP:\s*(\d+)',line).group(1)) <= 3 for line in lines[a:b] if re.search(r'SP:\s*\d+',line)), f'{f}: missing/invalid SP'
               assert all(any(a < i < b for a,b in zip(starts,ends)) for i in ends), f'{f}: stray --- separator'
           print('Repository contracts PASS')
+          PY
